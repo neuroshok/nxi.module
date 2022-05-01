@@ -1,0 +1,1 @@
+D:\project\nk\nxi\module\static\nxi.module\example.rust\target\release\nxi_module.dll: D:\project\nk\nxi\module\static\nxi.module\example.rust\src\lib.rs D:\project\nk\nxi\module\static\nxi.module\example.rust\src\nts\capi.rs D:\project\nk\nxi\module\static\nxi.module\example.rust\src\nts.rs
