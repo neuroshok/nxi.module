@@ -30,7 +30,7 @@ namespace nxi::modules
 
     void adk::on_load()
     {
-        QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(interceptor_);
+        session_.web_config()->setUrlRequestInterceptor(interceptor_);
 
         auto cmd = nxi::command("adk", "main", [this](const nxi::values&)
         {
@@ -42,7 +42,7 @@ namespace nxi::modules
 
     void adk::on_unload()
     {
-        QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(nullptr);
+        session_.web_config()->setUrlRequestInterceptor(nullptr);
 
 
         // session_.command_system().del(this); // delete all commands from this module
