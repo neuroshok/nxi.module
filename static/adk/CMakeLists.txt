@@ -1,3 +1,3 @@
-﻿module_add(adk)
+﻿module_static(adk)
 
 module_source(adk adk.cpp)

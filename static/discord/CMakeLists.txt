@@ -1,4 +1,4 @@
-﻿module_add(discord)
+﻿module_static(discord)
 
 
 file(GLOB_RECURSE D_SOURCES
