@@ -1,14 +1,17 @@
 #include "adk.hpp"
 
 #include <nxi/core.hpp>
-#include <nxi/system/window.hpp>
 #include <nxi/log.hpp>
 #include <nxi/page/web.hpp>
+#include <nxi/session.hpp>
+#include <nxi/system/window.hpp>
+#include <nxi/web_session.hpp>
+
+#include <ui/core.hpp>
 
 #include <QWebEngineUrlRequestInterceptor>
 #include <QWebEngineUrlRequestInfo>
 #include <QWebEngineProfile>
-#include <ui/core.hpp>
 
 struct interceptor : QWebEngineUrlRequestInterceptor
 {
@@ -30,7 +33,7 @@ namespace nxi::modules
 
     void adk::on_load()
     {
-        session_.web_config()->setUrlRequestInterceptor(interceptor_);
+        session_.web_session().setUrlRequestInterceptor(interceptor_);
 
         auto cmd = nxi::command("adk", "main", [this](const nxi::values&)
         {
@@ -42,7 +45,7 @@ namespace nxi::modules
 
     void adk::on_unload()
     {
-        session_.web_config()->setUrlRequestInterceptor(nullptr);
+        session_.web_session().setUrlRequestInterceptor(nullptr);
 
 
         // session_.command_system().del(this); // delete all commands from this module
