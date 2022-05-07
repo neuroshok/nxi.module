@@ -3,8 +3,8 @@
 #include <nxi/core.hpp>
 #include <nxi/log.hpp>
 #include <nxi/page/web.hpp>
-#include <nxi/session.hpp>
 #include <nxi/system/window.hpp>
+#include <nxi/user.hpp>
 #include <nxi/web_session.hpp>
 
 #include <ui/core.hpp>
@@ -24,7 +24,7 @@ struct interceptor : QWebEngineUrlRequestInterceptor
 
 namespace nxi::modules
 {
-    adk::adk(nxi::session& session)
+    adk::adk(nxi::user_session& session)
         : module("adk", module_type::compiled)
         , session_{ session }
         , interceptor_{ new ::interceptor }

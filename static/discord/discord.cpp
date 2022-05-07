@@ -18,7 +18,7 @@
 
 namespace nxi::modules
 {
-    discord::discord(nxi::session& session)
+    discord::discord(nxi::user_session& session)
         : module("discord", module_type::compiled)
         , session_{ session }
     {}
@@ -101,7 +101,7 @@ namespace nxi::modules
         l.SetCapacity(10);
         l.SetType(::discord::LobbyType::Public);
 
-        auto url = session_.page_system().focus()->command();
+        auto url = session_.page_system().focus().command();
         ::discord::User self;
         state.core->UserManager().GetCurrentUser(&self);
         invite_message_ = "**" + QString{ self.GetUsername() } + "** shared with you this page from **nxi browser**\n<" + url + ">";

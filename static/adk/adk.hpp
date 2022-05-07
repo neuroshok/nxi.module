@@ -6,7 +6,7 @@
 #include <QWebEngineUrlRequestInterceptor>
 #include <QWebEngineUrlRequestInfo>
 
-namespace nxi { class session; }
+namespace nxi { class user_session; }
 
 struct interceptor;
 
@@ -15,13 +15,13 @@ namespace nxi::modules
     class adk : public nxi::module
     {
     public:
-        explicit adk(nxi::session&);
+        explicit adk(nxi::user_session&);
 
         void on_load() override;
         void on_unload() override;
 
     private:
-        nxi::session& session_;
+        nxi::user_session& session_;
         ::interceptor* interceptor_;
     };
 } // nxi::modules
