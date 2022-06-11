@@ -24,9 +24,9 @@ struct interceptor : QWebEngineUrlRequestInterceptor
 
 namespace nxi::modules
 {
-    adk::adk(nxi::user_session& session)
+    adk::adk(nxi::user& user)
         : module("adk", module_type::compiled)
-        , session_{ session }
+        , user_{ user }
         , interceptor_{ new ::interceptor }
     {
     }

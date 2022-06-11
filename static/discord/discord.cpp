@@ -18,9 +18,9 @@
 
 namespace nxi::modules
 {
-    discord::discord(nxi::user_session& session)
+    discord::discord(nxi::user& user)
         : module("discord", module_type::compiled)
-        , session_{ session }
+        , user_{ user }
     {}
 
     void discord::on_load()

@@ -43,7 +43,10 @@ struct DiscordState {
     std::unique_ptr<discord::Core> core;
 };
 
-namespace nxi { class user_session; }
+namespace nxi
+{
+    class user;
+}
 
 namespace nxi::modules
 {
@@ -65,14 +68,14 @@ namespace nxi::modules
         };
 
     public:
-        explicit discord(nxi::user_session&);
+        explicit discord(nxi::user&);
 
         void on_load();
         void init();
         void send_invite(::discord::UserId);
 
     private:
-        nxi::user_session& session_;
+        nxi::user& user_;
         QString invite_message_;
 
         //std::vector<contact> friends_;
